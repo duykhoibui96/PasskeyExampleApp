@@ -1,0 +1,81 @@
+# ========================
+# Xcode
+# ========================
+
+# Build output
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+# Schemes (keep only shared schemes)
+*.xcscheme
+!*.xcscheme
+
+# Previews
+*.xcscmblueprint
+*.xccheckout
+
+# Xcode Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# Archives and exports
+*.xcarchive
+ExportOptions.plist
+
+# ========================
+# Swift Package Manager
+# ========================
+.build/
+.swiftpm/
+*.resolved
+
+# ========================
+# CocoaPods (if used later)
+# ========================
+Pods/
+Podfile.lock
+
+# ========================
+# Carthage (if used later)
+# ========================
+Carthage/Build/
+Carthage/Checkouts/
+
+# ========================
+# macOS system files
+# ========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# ========================
+# IDE / Editor
+# ========================
+.idea/
+*.swp
+*.swo
+*~
+
+# ========================
+# Sensitive / Secrets
+# ========================
+*.p12
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+AuthKey_*.p8
+secrets.json
+.env
+.env.*
