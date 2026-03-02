@@ -3,16 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 90;
 	objects = {
 
 /* Begin PBXFileReference section */
 		EA56FF092F55AACE00D53F50 /* Passkey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passkey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		EAEDB1D52F55FB4C001C0FCB /* Exceptions for "Passkey" folder in "Passkey" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = EA56FF082F55AACE00D53F50 /* Passkey */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EA56FF0B2F55AACE00D53F50 /* Passkey */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				EAEDB1D52F55FB4C001C0FCB /* Exceptions for "Passkey" folder in "Passkey" target */,
+			);
 			path = Passkey;
 			sourceTree = "<group>";
 		};
@@ -21,10 +34,8 @@
 /* Begin PBXFrameworksBuildPhase section */
 		EA56FF062F55AACE00D53F50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
@@ -58,14 +69,10 @@
 			);
 			buildRules = (
 			);
-			dependencies = (
-			);
 			fileSystemSynchronizedGroups = (
 				EA56FF0B2F55AACE00D53F50 /* Passkey */,
 			);
 			name = Passkey;
-			packageProductDependencies = (
-			);
 			productName = Passkey;
 			productReference = EA56FF092F55AACE00D53F50 /* Passkey.app */;
 			productType = "com.apple.product-type.application";
@@ -94,7 +101,7 @@
 			);
 			mainGroup = EA56FF002F55AACE00D53F50;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
+			preferredProjectObjectVersion = 90;
 			productRefGroup = EA56FF0A2F55AACE00D53F50 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -107,25 +114,21 @@
 /* Begin PBXResourcesBuildPhase section */
 		EA56FF072F55AACE00D53F50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA56FF052F55AACE00D53F50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
 			files = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		EA56FF122F55AACF00D53F50 /* Debug */ = {
+		EA56FF122F55AACF00D53F50 /* Debug configuration for PBXProject "Passkey" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -189,7 +192,7 @@
 			};
 			name = Debug;
 		};
-		EA56FF132F55AACF00D53F50 /* Release */ = {
+		EA56FF132F55AACF00D53F50 /* Release configuration for PBXProject "Passkey" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,7 +249,7 @@
 			};
 			name = Release;
 		};
-		EA56FF152F55AACF00D53F50 /* Debug */ = {
+		EA56FF152F55AACF00D53F50 /* Debug configuration for PBXNativeTarget "Passkey" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -256,6 +259,7 @@
 				DEVELOPMENT_TEAM = VN7M43D6R4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Passkey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -278,7 +282,7 @@
 			};
 			name = Debug;
 		};
-		EA56FF162F55AACF00D53F50 /* Release */ = {
+		EA56FF162F55AACF00D53F50 /* Release configuration for PBXNativeTarget "Passkey" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -288,6 +292,7 @@
 				DEVELOPMENT_TEAM = VN7M43D6R4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Passkey/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -316,19 +321,17 @@
 		EA56FF042F55AACE00D53F50 /* Build configuration list for PBXProject "Passkey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EA56FF122F55AACF00D53F50 /* Debug */,
-				EA56FF132F55AACF00D53F50 /* Release */,
+				EA56FF122F55AACF00D53F50 /* Debug configuration for PBXProject "Passkey" */,
+				EA56FF132F55AACF00D53F50 /* Release configuration for PBXProject "Passkey" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 		EA56FF142F55AACF00D53F50 /* Build configuration list for PBXNativeTarget "Passkey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EA56FF152F55AACF00D53F50 /* Debug */,
-				EA56FF162F55AACF00D53F50 /* Release */,
+				EA56FF152F55AACF00D53F50 /* Debug configuration for PBXNativeTarget "Passkey" */,
+				EA56FF162F55AACF00D53F50 /* Release configuration for PBXNativeTarget "Passkey" */,
 			);
-			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
