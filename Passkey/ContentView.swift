@@ -30,8 +30,17 @@ final class PasskeyViewModel: NSObject, ObservableObject {
     @Published var status: String = "Ready"
     @Published var isBusy: Bool = false
 
+    @Published var registeredCredentialID: Data? = nil
+
     // Configure your RP ID (domain) to match your server and associated domain entitlement
     private let relyingPartyID = Bundle.main.object(forInfoDictionaryKey: "RPID") as? String ?? "example.com"
+
+    override init() {
+        super.init()
+        if let id = UserDefaults.standard.data(forKey: "RegisteredCredentialID") {
+            self.registeredCredentialID = id
+        }
+    }
 
     // MARK: Register (Create Credential)
     func registerPasskey() {
@@ -81,6 +90,35 @@ final class PasskeyViewModel: NSObject, ObservableObject {
         controller.presentationContextProvider = self
         controller.performRequests()
     }
+
+    func removePasskey() async {
+        guard let credentialID = registeredCredentialID else { return }
+        isBusy = true
+        status = "Deleting passkey…"
+        let manager = ASCredentialDataManager()
+        
+        defer {
+            isBusy = false
+        }
+        
+        do {
+            // Call the asynchronous throwing method on your ASCredentialDataManager instance
+            try await manager.reportUnknownPublicKeyCredential(
+                relyingPartyIdentifier: relyingPartyID,
+                credentialID: credentialID
+            )
+            registeredCredentialID = nil
+            UserDefaults.standard.removeObject(forKey: "RegisteredCredentialID")
+            print("Successfully reported unknown public key credential.")
+            status = "Passkey deleted"
+        } catch let error as ASAuthorizationError {
+            status = "Failed to delete passkey: \(error.localizedDescription)"
+        } catch {
+            // Handle any other unexpected errors
+            print("An unexpected error occurred: \(error.localizedDescription)")
+        }
+    
+    }
 }
 
 // MARK: - ASAuthorizationControllerDelegate
@@ -95,6 +133,8 @@ extension PasskeyViewModel: ASAuthorizationControllerDelegate {
             let credentialIDB64 = registration.credentialID.base64EncodedString()
             // Normally: POST to /webauthn/register/finish with attestation, clientDataJSON, and credentialID
             status = "Registered passkey (id: \(credentialIDB64))\nattestation: \(attestationB64)\nclientData: \(clientDataB64)\nSend to server to finalize."
+            self.registeredCredentialID = registration.credentialID
+            UserDefaults.standard.set(registration.credentialID, forKey: "RegisteredCredentialID")
 
         case let assertion as ASAuthorizationPlatformPublicKeyCredentialAssertion:
             let authenticatorDataB64 = assertion.rawAuthenticatorData.base64EncodedString()
@@ -186,6 +226,20 @@ struct ContentView: View {
                     }
                     .buttonStyle(.bordered)
                     .disabled(viewModel.isBusy)
+
+                    if let _ = viewModel.registeredCredentialID {
+                        Button {
+                            Task {
+                                try await viewModel.removePasskey()
+                            }
+                        } label: {
+                            Label("Remove passkey", systemImage: "trash")
+                                .frame(maxWidth: .infinity)
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(.red)
+                        .disabled(viewModel.isBusy)
+                    }
                 }
 
                 GroupBox("Status") {

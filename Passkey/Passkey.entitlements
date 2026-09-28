@@ -2,7 +2,9 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>RPID</key>
-	<string>duykhoibui96.github.io</string>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>webcredentials:duykhoibui96.github.io</string>
+	</array>
 </dict>
 </plist>
